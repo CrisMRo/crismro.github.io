@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cristóbal A. Mejía Romo | Portfolio</title>
+  <meta name="description" content="Cristóbal Arturo Mejía Romo - HiL Automation, Business Analysis, Data & Continuous Improvement."/>
+  <meta name="color-scheme" content="dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="preload" as="image" href="cmejia_formal.jpg" />
+  <style>
+    :root {
+      --color-bg: #121212; --color-body-bg: #1e1e1e; --color-text-light: #e0e0e0; --color-text-muted: #c5c5c5; --color-primary: #3a99f6; --color-success: #27ae60; --color-danger: #e74c3c; --color-warning: #f39c12; --color-info: #2980b9; --color-surface: #242424; --color-border: #333333; --color-card-bg: #292929; --color-link: #5dade2; --color-link-hover: #2e86de; --radius: 14px; --shadow: 0 8px 28px -8px rgba(0,0,0,.6); --ease: cubic-bezier(.19,1,.22,1);
+      /* Typographic scale */
+      --fs-base: 1.05rem; /* ~16.8px */
+      --fs-rg: 0.95rem;   /* regular body text (bullets, paragraphs) */
+      --fs-sm: 0.82rem;   /* supportive text (skill matrix cells) */
+      --fs-xs: 0.72rem;   /* meta / labels */
+      --fs-xxs: 0.68rem;  /* rare tiny (footer / subtle) */
+      --fs-pill: 0.74rem; /* pills */
+      --fs-button: 0.78rem;
+      --content-max: 880px;
+    }
+    body.light { --color-bg: #f5f7fa; --color-body-bg: #ffffff; --color-text-light: #121212; --color-text-muted: #555555; --color-primary: #0657ff; --color-surface: #f9f9f9; --color-border: #bbbbbb; --color-card-bg: #ffffff; --color-link: #2e86de; --color-link-hover: #5dade2; }
+    body { background: var(--color-body-bg); color: var(--color-text-light); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; font-size: var(--fs-base); line-height:1.55; transition: background .6s, color .6s; }
+    html { scroll-padding-top:110px; }
+    a { color: var(--color-link); }
+    a:hover { color: var(--color-link-hover); }
+    h1,h2,h3,h4,h5 { color: var(--color-text-light); font-weight:600; }
+    .nav-glass { backdrop-filter: blur(12px); background: rgba(18,18,18,.72); border-bottom: 1px solid var(--color-border); }
+    .hero-wrapper { max-width:1180px; margin:0 auto; padding:120px 1.5rem 50px; display:flex; flex-wrap:wrap; align-items:center; gap:3.2rem; }
+    /* Mantener texto a la derecha y escala moderada de la foto + centrado vertical */
+    @media (min-width: 840px){
+      .hero-wrapper { flex-wrap:nowrap; align-items:center; }
+      .hero-wrapper > figure { flex:0 0 300px; }
+      .hero-wrapper > div { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+    /* Limitar ancho y justificar para alinear visualmente con el encabezado */
+    .hero-wrapper .lead-goal { max-width:50ch; text-align:justify; text-justify:inter-word; hyphens:auto; }
+    }
+    /* Balance wrapping when supported for nicer first/last line distribution */
+    @supports (text-wrap: balance){
+      @media (min-width:840px){ .hero-wrapper .lead-goal { text-wrap:balance; } }
+    }
+    @media (min-width: 1080px){ .hero-wrapper > figure { flex:0 0 320px; } }
+    @media (min-width: 1320px){ .hero-wrapper > figure { flex:0 0 340px; } }
+    @media (prefers-reduced-motion: reduce){ .avatar-ring:before { animation:none !important; } }
+  .avatar-ring { position:relative; width:280px; height:280px; flex:0 0 auto; }
+  @media (min-width:840px){ .avatar-ring { width:300px; height:300px; } }
+  @media (min-width:1080px){ .avatar-ring { width:320px; height:320px; } }
+  @media (min-width:1320px){ .avatar-ring { width:340px; height:340px; } }
+    .avatar-ring:before { content:""; position:absolute; inset:0; border-radius:50%; padding:6px; background: linear-gradient(135deg,var(--color-primary),var(--color-info)); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; animation: spin 18s linear infinite; opacity:.65; }
+    @keyframes spin { 100% { transform: rotate(360deg);} }
+    .avatar-ring img { width:100%; height:100%; object-fit:cover; border-radius:50%; box-shadow:0 18px 55px -16px rgba(0,0,0,.75); }
+    .badge { background: linear-gradient(120deg,var(--color-primary),#2563eb); color:#fff; font-size:.65rem; letter-spacing:.07em; font-weight:600; padding:.5rem .7rem; border-radius:999px; text-transform:uppercase; box-shadow:0 4px 16px -6px rgba(0,0,0,.6); }
+  .lead-goal { font-size:1rem; line-height:1.6; color: var(--color-text-muted); max-width:700px; }
+    .btn-compact { padding:.6rem 1.05rem; font-size:.8rem; font-weight:600; letter-spacing:.05em; border-radius:10px; display:inline-flex; align-items:center; gap:.35rem; white-space:nowrap; }
+    .btn-compact i { font-size:1rem; margin-right:.25rem !important; }
+    .section { max-width:1180px; margin:0 auto; padding:40px 1.5rem 10px; position:relative; }
+    /* Consolidated .section-title (removed duplicate rule) */
+    .section-title { text-align:center; margin-bottom:1.6rem; }
+    .section-title span { position:relative; display:inline-block; color:var(--color-text-light); background:none; -webkit-background-clip:initial; background-clip:initial; }
+    .section-title span:after { display:none !important; }
+    .card-soft { background: var(--color-card-bg); border:1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow); padding:1.4rem 1.4rem 1.55rem; position:relative; overflow:hidden; transition: box-shadow .6s var(--ease), transform .6s var(--ease), border-color .6s; }
+    .card-soft:hover { transform: translateY(-4px); box-shadow:0 18px 60px -18px rgba(0,0,0,.8); border-color: var(--color-primary); }
+  .exp-item { background:transparent; border:none; border-radius:0; padding:0 0 1.2rem; position:relative; overflow:visible; box-shadow:none; transition:none; }
+  .exp-item:hover, .exp-item:focus-within { box-shadow:none; border:none; transform:none; }
+    .exp-item + .exp-item { margin-top:1.1rem; }
+    .exp-head { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; cursor:default; }
+  .exp-meta { font-size:0.66rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600; color: var(--color-text-muted); margin-top:.35rem; }
+  .exp-role { font-size:1.08rem; margin:0; font-weight:600; }
+  .exp-company { font-size:0.9rem; font-weight:500; color: var(--color-text-muted); }
+  .exp-body { padding-top:.65rem; opacity:1; transform:none; }
+  .exp-body ul { margin:0; padding-left:1.05rem; display:grid; gap:.55rem; }
+  .exp-body li { font-size:1rem; line-height:1.55; color: var(--color-text-muted); }
+  .skill-pill { background:rgba(90,167,255,.09); color: var(--color-link); font-size:var(--fs-pill); padding:.5rem .8rem .52rem; border-radius:999px; font-weight:600; letter-spacing:.05em; margin:.3rem .4rem .3rem 0; display:inline-flex; }
+  .skill-category h5 { font-size:0.78rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; margin:0 0 .65rem; color: var(--color-text-muted); }
+    .skill-category { margin-bottom:1.4rem; }
+    .cert-list { list-style:none; margin:0; padding:0; display:grid; gap:.6rem; }
+  .cert-list li { font-size:0.88rem; color: var(--color-text-muted); line-height:1.45; padding:.12rem 0; }
+    .contact-box a { font-weight:600; word-break:break-all; }
+    .whatsapp-link { display:inline-flex; align-items:center; gap:.45rem; text-decoration:none; font-weight:600; letter-spacing:.02em; color:var(--color-text-light); padding:0; background:none; border-radius:0; transition: color .3s ease; }
+    .whatsapp-link i { font-size:1.05rem; color:#0b6b00; }
+    .whatsapp-link:hover { color:var(--color-link-hover); }
+    .whatsapp-link:hover i { color:#0b6b00; }
+    .whatsapp-link:focus-visible { outline:2px solid #0b6b00; outline-offset:3px; border-radius:4px; }
+    [data-reveal] { opacity:0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+    [data-reveal].visible { opacity:1; transform: translateY(0); }
+    footer { margin-top:0; background: var(--color-surface); border-top:1px solid var(--color-border); padding:25px 0 24px; text-align:center; }
+  footer p { margin:0; font-size:var(--fs-xxs); letter-spacing:.06em; color: var(--color-text-muted); }
+    .resume-band-separator { width:100%; height:1px; border:0; background:linear-gradient(90deg,rgba(255,255,255,.06),rgba(255,255,255,.4),rgba(255,255,255,.06)); margin:80px 0 0; }
+    .resume-band {
+      background:#6fe869;
+      background:linear-gradient(115deg,#5fd457 0%,#73e66c 52%,#88f07f 100%);
+      color:#000; text-align:center; padding:8px 1rem 12px;
+      box-shadow:0 3px 10px -6px rgba(0,0,0,.35) inset,0 4px 18px -10px rgba(0,0,0,.4);
+    }
+    .resume-band h2 { font-size:clamp(1.35rem,1.9vw,1.65rem); font-weight:600; margin:0 0 6px; letter-spacing:.015em; color:#000; }
+    .resume-download-btn { background:#000; color:#fff; padding:8px 22px; border-radius:4px; font-weight:600; font-size:.82rem; letter-spacing:.35px; display:inline-block; text-decoration:none; transition:background .35s ease, transform .35s ease; line-height:1.05; }
+    .resume-download-btn:hover { background:#111; transform:translateY(-2px); }
+    .resume-download-btn:focus-visible { outline:3px solid #000; outline-offset:3px; background:#111; }
+    #scroll-progress {position:fixed;left:0;top:0;height:4px;width:100%;z-index:2000; background:transparent;}
+    #scroll-progress::-webkit-progress-bar { background:transparent; }
+    #scroll-progress::-webkit-progress-value { background:linear-gradient(90deg,var(--color-primary),var(--color-info)); transition: all .15s linear; }
+    #scroll-progress::-moz-progress-bar { background:linear-gradient(90deg,var(--color-primary),var(--color-info)); }
+  .scroll-cue {position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1500;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);color:#fff;cursor:pointer;box-shadow:0 6px 18px -6px rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .4s ease, background .35s ease;}
+  .scroll-cue.visible {opacity:1;pointer-events:auto;}
+  .scroll-cue:hover {background:rgba(0,0,0,.75);} .scroll-cue i {font-size:1.3rem;}
+    @media (min-width: 992px){ html { scroll-behavior:smooth; } }
+    .skill-carousel-wrapper { max-width:880px; margin:0 auto; }
+    .sc-container { width:100%; max-width:800px; height:360px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; }
+    .sc-container input[type=radio]{ display:none; }
+    .sc-cards { position:relative; width:100%; height:260px; margin-bottom:18px; }
+    .sc-card { position:absolute; inset:0; width:60%; height:100%; margin:auto; border-radius:12px; overflow:hidden; cursor:pointer; transition: transform .5s var(--ease), opacity .5s; box-shadow:0 12px 38px -12px rgba(0,0,0,.55); display:flex; flex-direction:column; background:linear-gradient(145deg, rgba(60,60,60,.9), rgba(25,25,25,.95)); backdrop-filter:blur(6px); }
+    .sc-matrix { flex:1; padding:.9rem .95rem .6rem; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+    .skill-matrix { width:100%; border-collapse:collapse; font-size:.78rem; line-height:1.28; }
+    .skill-matrix thead th { text-transform:uppercase; letter-spacing:.08em; font-weight:600; font-size:.66rem; padding:0 0 .42rem; color:var(--color-text-muted); }
+    .skill-matrix tbody td { padding:.26rem 0; vertical-align:middle; }
+    .skill-matrix tbody td.skill { width:50%; font-weight:600; padding-right:.4rem; }
+    .skill-matrix tbody td.pct { width:50%; }
+    .sm-bar { position:relative; height:6px; border-radius:4px; background:rgba(255,255,255,.15); overflow:hidden; flex:1; }
+    .sm-bar span { position:absolute; inset:0; width:0; background: linear-gradient(90deg,var(--color-primary), #7fb9ff); transition: width .9s var(--ease); }
+    .pct-inner { display:flex; align-items:center; gap:.55rem; }
+    .sm-val { font-size:.62rem; font-weight:700; letter-spacing:.05em; min-width:2.2rem; text-align:right; color:var(--color-text-muted); }
+    .sc-card[data-domain="automation"] .sm-bar span { background:linear-gradient(90deg,#1e88e5,#42a5f5); }
+    .sc-card[data-domain="analytics"] .sm-bar span { background:linear-gradient(90deg,#8e24aa,#5e35b1); }
+    .sc-card[data-domain="improvement"] .sm-bar span { background:linear-gradient(90deg,#00897b,#26a69a); }
+    .sc-card[data-active="true"] .sm-bar span { width:var(--w); }
+    .sc-card h5 { margin:.65rem .9rem .15rem; font-size:1.05rem; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:var(--color-text-muted); text-align:center; }
+    body.light .sc-card h5 { color:#444; }
+    #sc-item-1:checked ~ .sc-cards #sc-card-3, #sc-item-2:checked ~ .sc-cards #sc-card-1, #sc-item-3:checked ~ .sc-cards #sc-card-2 { transform:translateX(-40%) scale(.78); opacity:.35; z-index:0; }
+    #sc-item-1:checked ~ .sc-cards #sc-card-2, #sc-item-2:checked ~ .sc-cards #sc-card-3, #sc-item-3:checked ~ .sc-cards #sc-card-1 { transform:translateX(40%) scale(.78); opacity:.35; z-index:0; }
+    #sc-item-1:checked ~ .sc-cards #sc-card-1, #sc-item-2:checked ~ .sc-cards #sc-card-2, #sc-item-3:checked ~ .sc-cards #sc-card-3 { transform:translateX(0) scale(1); opacity:1; z-index:1; box-shadow:0 0 0 3px rgba(255,255,255,.25),0 12px 38px -12px rgba(0,0,0,.65); }
+    .sc-radio-label { position:absolute; inset:0; }
+    .sc-card button { all:unset; position:absolute; inset:0; cursor:pointer; }
+    .sc-card button:focus-visible { outline:3px solid var(--color-primary); outline-offset:2px; }
+    .sc-card[data-active="true"] { outline:2px solid var(--color-primary); outline-offset:3px; }
+    @media (max-width:780px){ .sc-card{ width:78%; } .sc-container{ height:420px;} }
+    @media (max-width:560px){ .sc-card{ width:90%; } }
+    #experience, #skills, #education, #certifications, #contact { scroll-margin-top:140px; }
+    header#siteHeader { position:relative; z-index:9999; }
+    /* Refined glass effect (2nd pass: more transparency per option 1) */
+    nav.primary-float {
+      display:flex; gap:.35rem; height:60px; justify-content:center; align-items:center; padding:0 .95rem;
+      position:fixed; left:0; right:0; width:min(880px,92%); margin:0 auto; top:20px;
+      /* Opción A: un paso más oscuro */
+      background:linear-gradient(140deg,rgba(18,22,26,.80),rgba(18,22,26,.65));
+      border-radius:72px; z-index:999;
+      backdrop-filter:blur(24px) saturate(135%) brightness(1.02);
+      -webkit-backdrop-filter:blur(24px) saturate(135%) brightness(1.02);
+      border:1px solid rgba(255,255,255,.13);
+      box-shadow:0 4px 22px -14px rgba(0,0,0,.7), inset 0 0 0 1px rgba(255,255,255,.03);
+      overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none;
+    }
+    nav.primary-float::-webkit-scrollbar { display:none; }
+  nav.primary-float a { color:#fff; font-weight:600; padding:.62rem .9rem .64rem; font-size:0.78rem; letter-spacing:.13em; text-transform:uppercase; position:relative; line-height:1; text-decoration:none; white-space:nowrap; border-radius:48px; }
+    nav.primary-float a:focus-visible { outline:2px solid var(--color-primary); outline-offset:2px; background:rgba(255,255,255,.07); }
+    nav.primary-float a:after { content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:6px; width:0; height:2px; background:linear-gradient(90deg,var(--color-primary),var(--color-info)); border-radius:2px; transition:width .35s; }
+    nav.primary-float a:hover:after, nav.primary-float a.active:after { width:40%; }
+    @media (max-width:760px){ nav.primary-float { height:56px; gap:.15rem; } nav.primary-float a { font-size:.68rem; padding:.5rem .7rem .52rem; } }
+    /* Continuous vertical line for experience bullets (no individual circles) */
+  #experienceList { max-width:760px; margin:0 auto; }
+  #experienceList .exp-item .exp-body ul { list-style:none; margin:0; padding:0 0 0 1.4rem; position:relative; display:grid; gap:.6rem; max-width:var(--content-max); }
+  #education .card-soft, #certifications .card-soft { max-width:var(--content-max); }
+  .lead-goal, .cert-list { max-width:var(--content-max); }
+  /* Continuous vertical line only (no per-item hover highlight) */
+  #experienceList .exp-item .exp-body ul:before { content:""; position:absolute; left:.15rem; top:.05rem; bottom:.05rem; width:2px; background:linear-gradient(180deg,var(--color-primary),var(--color-info)); border-radius:2px; opacity:.85; }
+  #experienceList .exp-item .exp-body li { list-style:none; position:relative; padding-left:0; }
+  /* Education section: remove card box and add vertical line style like experience */
+  #education .card-soft { background:transparent; border:none; box-shadow:none; border-radius:0; padding:0 0 0 1.4rem; position:relative; overflow:visible; }
+  #education .card-soft:before { content:""; position:absolute; left:.15rem; top:.1rem; bottom:.1rem; width:2px; background:linear-gradient(180deg,var(--color-primary),var(--color-info)); border-radius:2px; opacity:.85; }
+  #education .card-soft h4, #education .card-soft p { margin-left:0; }
+  #education .card-soft h4 { font-weight:600; }
+  /* Certifications section: same minimalist vertical line style */
+  #certifications .card-soft { background:transparent; border:none; box-shadow:none; border-radius:0; padding:0 0 0 1.4rem; position:relative; overflow:visible; }
+  #certifications .card-soft:before { content:""; position:absolute; left:.15rem; top:.1rem; bottom:.1rem; width:2px; background:linear-gradient(180deg,var(--color-primary),var(--color-info)); border-radius:2px; opacity:.85; }
+  #certifications .cert-list { padding:0; margin:0; }
+  #certifications .cert-list li { padding:0; }
+    /* Skip link styling */
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left:50%; top:10px; width:auto; height:auto; padding:.7rem 1rem; background:#000; color:#fff; z-index:10000; transform:translateX(-50%); border-radius:6px; box-shadow:0 6px 18px -6px rgba(0,0,0,.5); }
+    /* Print friendly adjustments */
+    @media print {
+      :root { --color-bg:#fff; --color-body-bg:#fff; --color-text-light:#000; --color-text-muted:#222; }
+      body { background:#fff; color:#000; font-size:11pt; line-height:1.35; }
+      nav.primary-float, #theme-switch, .scroll-cue, #scroll-progress, .resume-band, footer { display:none !important; }
+      .hero-wrapper { padding:20px 0 10px; gap:1.2rem; }
+      .avatar-ring { width:140px !important; height:140px !important; }
+      .avatar-ring:before { display:none; }
+      .hero-wrapper .lead-goal { max-width:100%; text-align:justify; hyphens:auto; font-size:0.95rem; }
+      #experienceList .exp-item .exp-body ul:before, #education .card-soft:before, #certifications .card-soft:before { background:#000; opacity:.4; }
+      a { color:#000; text-decoration:none; }
+      a[href^="http"]:after { content:" (" attr(href) ")"; font-size:0.6em; word-break:break-all; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header id="siteHeader">
+    <nav class="primary-float" aria-label="Primary Navigation">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills &amp; Stack</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <progress id="scroll-progress" value="0" max="100" aria-label="Scroll progress" style="appearance:none;-webkit-appearance:none;"></progress>
+  <button class="scroll-cue" id="scrollCue" aria-label="Volver arriba" title="Back to top" hidden><i class="bi bi-arrow-up"></i></button>
+  <header id="about" class="hero-wrapper" data-reveal>
+    <figure class="avatar-ring" data-reveal><img src="cmejia_formal.jpg" alt="Portrait of Cristóbal A. Mejía Romo" loading="lazy" /></figure>
+    <div data-reveal>
+      <h1 class="mb-3" style="font-size:clamp(2rem,3.8vw,3.1rem);">Cristobal Arturo Mejia Romo</h1>
+  <p class="lead-goal mb-3">I focus on elevating digital initiatives and operational processes through data analysis, automation enablement and structured performance management. I build scalable, quality solutions aligned with business objectives, KPIs and OKR frameworks to maximize value and transparent execution.</p>
+    </div>
+  </header>
+  <main id="main">
+  <section id="experience" class="section" data-reveal><div class="section-title"><h2><span>Professional Experience</span></h2></div><div id="experienceList"></div></section>
+  <section id="skills" class="section" data-reveal>
+    <div class="section-title"><h2><span>Skills</span></h2></div>
+    <div class="skill-carousel-wrapper mb-4" aria-label="Highlighted Skill Domains"><div class="sc-container"><input type="radio" name="sc-slider" id="sc-item-1" checked><input type="radio" name="sc-slider" id="sc-item-2"><input type="radio" name="sc-slider" id="sc-item-3"><div class="sc-cards" id="scCards"></div></div></div>
+    <div class="row"><div class="col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-3">Technical</h4><div class="skill-category"><h5>Core</h5><div><span class="skill-pill">Data Analytics</span><span class="skill-pill">Python (OOP)</span><span class="skill-pill">REST APIs</span><span class="skill-pill">MS Office Suite</span><span class="skill-pill">Google Workspace</span><span class="skill-pill">n8n</span><span class="skill-pill">Power BI</span><span class="skill-pill">Qlik</span></div></div><div class="skill-category"><h5>Methods</h5><div><span class="skill-pill">SAFe Agile</span><span class="skill-pill">Kanban</span><span class="skill-pill">Scrum</span><span class="skill-pill">Lean</span><span class="skill-pill">Six Sigma</span><span class="skill-pill">SLA</span><span class="skill-pill">OKRs</span></div></div></div></div><div class="col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-3">Soft & Cross-Functional</h4><p style="font-size:.8rem; line-height:1.45; color: var(--color-text-muted);">Cross-functional collaboration, strategic stakeholder alignment, systems thinking, impact-based prioritization, clear value-oriented communication and continuous improvement mindset.</p><div class="skill-category"><h5>Tools & Collaboration</h5><div><span class="skill-pill">Atlassian</span><span class="skill-pill">Confluence</span><span class="skill-pill">GitHub Actions</span><span class="skill-pill">Power Apps</span><span class="skill-pill">Automations</span></div></div><div class="skill-category"><h5>Languages</h5><div><span class="skill-pill">Spanish (Native)</span><span class="skill-pill">English (Advanced)</span><span class="skill-pill">German (Intermediate)</span><span class="skill-pill">Italian (Basic)</span></div></div></div></div></div>
+  </section>
+  <section id="education" class="section" data-reveal><div class="section-title"><h2><span>Education</span></h2></div><div class="row justify-content-center"><div class="col-md-7 col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-1">Mechatronics Engineering</h4><p class="mb-2" style="font-size:.8rem; color:var(--color-text-muted);">Universidad La Salle (2015 – 2019)</p><p style="font-size:.75rem; color:var(--color-text-muted);">Focus on automation, embedded systems and applied technical analysis for vehicle platforms.</p></div></div></div></section>
+  <section id="certifications" class="section" data-reveal><div class="section-title"><h2><span>Certifications & Courses</span></h2></div><div class="row justify-content-center"><div class="col-lg-8 col-xl-7 mb-4" data-reveal><div class="card-soft h-100"><ul class="cert-list mb-0" id="certList"></ul></div></div></div></section>
+  <section id="contact" class="section" data-reveal><div class="section-title"><h2><span>Contact</span></h2></div><div class="row"><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-linkedin mr-1"></i> LinkedIn</h5><a href="https://www.linkedin.com/in/cristóbal-mejía-romo-834787179" target="_blank" rel="noopener">linkedin.com/in/cristóbal-mejía-romo-834787179</a></div></div><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-telephone mr-1"></i> Mobile / WhatsApp</h5><a class="whatsapp-link" href="https://wa.me/525566912978" target="_blank" rel="noopener" aria-label="Open WhatsApp chat in new tab for +52 55 6691 2978"><i class="bi bi-whatsapp"></i><span>+52 55 6691 2978</span></a></div></div><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-envelope mr-1"></i> Email</h5><a href="mailto:cristobal_arturo@hotmail.com">cristobal_arturo@hotmail.com</a></div></div></div></section>
+  </main>
+  <hr class="resume-band-separator" aria-hidden="true" />
+  <section class="resume-band" aria-labelledby="resumeCtaTitle" data-reveal><div class="resume-band-inner" data-reveal><h2 id="resumeCtaTitle">Want my Resume?</h2><a href="Cris_Mejia_Romo_Resume.pdf" target="_blank" class="resume-download-btn" aria-label="Download resume PDF">Download</a></div></section>
+  <footer><p>© <span id="year"></span> Cristobal Arturo Mejia Romo. All rights reserved.</p></footer>
+  <script>
+  'use strict';
+  /* Data sets (formatted for readability) */
+  const skillDomains = [
+    {
+      id: 1,
+      domain: 'automation',
+      label: 'Automation Domain',
+      aria: 'Automation skill coverage',
+      rows: [
+        ['Python Scripts', 85],
+        ['RPA / Workflow', 70],
+        ['APIs Integration', 78],
+        ['CI Scripts', 65],
+        ['Task Orchestration', 72]
+      ]
+    },
+    {
+      id: 2,
+      domain: 'analytics',
+      label: 'Analytics Domain',
+      aria: 'Analytics skill coverage',
+      rows: [
+        ['Data Modeling', 80],
+        ['BI Dashboards', 75],
+        ['SQL Queries', 68],
+        ['ETL Pipelines', 62],
+        ['KPI / OKR Design', 77]
+      ]
+    },
+    {
+      id: 3,
+      domain: 'improvement',
+      label: 'Improvement Domain',
+      aria: 'Improvement skill coverage',
+      rows: [
+        ['Lean Methods', 82],
+        ['Six Sigma Tools', 70],
+        ['Root Cause (RCA)', 75],
+        ['Change Mgmt', 60],
+        ['Process Mapping', 78]
+      ]
+    }
+  ];
+
+  (function buildCarousel() {
+    const host = document.getElementById('scCards');
+    if (!host) return;
+    host.innerHTML = skillDomains.map(d => {
+      const rows = d.rows
+        .map(r => `
+          <tr>
+            <td class="skill">${r[0]}<span class="sr-only"> ${r[1]} percent</span></td>
+            <td class="pct">
+              <div class="pct-inner">
+                <div class="sm-bar" style="--w:${r[1]}%">
+                  <span aria-hidden="true" title='${r[0]} ${r[1]}%'></span>
+                </div>
+                <span class="sm-val">${r[1]}%</span>
+              </div>
+            </td>
+          </tr>`)
+        .join('');
+      return `
+        <div class="sc-card" id="sc-card-${d.id}" data-domain="${d.domain}">
+          <h5>${d.label.replace(' Domain','')}</h5>
+          <div class="sc-matrix">
+            <table class="skill-matrix" aria-label="${d.aria}">
+              <thead><tr><th class="skill">Skill</th><th class="pct">Level</th></tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+          <button type="button" aria-label="Select ${d.label}" data-target="sc-item-${d.id}"></button>
+        </div>`;
+    }).join('');
+  })();
+
+  const experienceData = [
+    {
+      role: 'HiL Core Business Analyst',
+      company: 'Ford Motor Company',
+      period: 'Dec 2019 – Present',
+      bullets: [
+        'Expanded HiL test coverage through agile methods and targeted automation.',
+        'Led digital project portfolio aligning corporate objectives with platform metrics.',
+        'Automated manual HiL test preparation & reporting tasks using internal Python tools.',
+        'Delivered performance analytics enabling cross‑team KPI definition and attainment.',
+        'Developed analytics tool reducing manual diagnostic effort ~99.9% (months to 1 minute).',
+        'Implemented continuous improvement loop (hypothesis → launch → measurement).',
+        'Integrated Power Apps and GitHub Actions to streamline CI/CD style flows.',
+        'Published Power BI / Qlik dashboards for real‑time operational visibility.',
+        'Embedded KPI / OKR and process governance frameworks into engineering cadence.'
+      ]
+    },
+    {
+      role: 'Trainee HiL Automation Engineer',
+      company: 'Ford Motor Company',
+      period: 'Sept 2017 – Dec 2019',
+      bullets: [
+        'Supported setup of automated HiL testing processes and infrastructure.',
+        'Gained hands‑on exposure to agile frameworks and modern toolchains.',
+        'Created embedded OCR system and evaluation utilities for HiL subsystem.',
+        'Assisted scripting and environment preparation for validation scenarios.',
+        'Collaborated with engineering teams to scale coverage and consistency.'
+      ]
+    }
+  ];
+
+  const certifications = [
+    'Certified SAFe 6 Scrum Master (2023)',
+    'Google Cloud Platform Onboarding (2023)',
+    'ISTQB',
+    'Lean Six Sigma Green Belt (Project Delivered, 2022)',
+    'Simulink – Stateflow On Ramp (2021)',
+    'Google Project Planning: Putting It All Together (2025)',
+    'Google Foundations of Project Management (2025)',
+    'Google Project Initiation: Starting a Successful Project (2025)',
+    'Google Gen AI: Beyond the Chatbot (2025)'
+  ];
+
+  const expContainer = document.getElementById('experienceList');
+  expContainer.innerHTML = experienceData.map((e, i) => `
+    <article class="exp-item" data-index="${i}" data-reveal>
+      <div class="exp-head">
+        <div>
+          <h3 class="exp-role mb-1">${e.role}</h3>
+          <div class="exp-company mb-1">${e.company}</div>
+          <div class="exp-meta">${e.period}</div>
+        </div>
+      </div>
+      <div class="exp-body">
+        <ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+      </div>
+    </article>`).join('');
+
+  document.getElementById('certList').innerHTML = certifications.map(c => `<li>${c}</li>`).join('');
+
+  /* Reveal on scroll */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(ent => {
+      if (ent.isIntersecting) {
+        ent.target.classList.add('visible');
+        io.unobserve(ent.target);
+      }
+    });
+  }, { threshold: .12 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* Active nav highlighting */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav.primary-float a');
+  const secObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
+      }
+    });
+  }, { rootMargin: '-50% 0px -49% 0px', threshold: [0, 1] });
+  sections.forEach(s => secObserver.observe(s));
+
+  /* Scroll progress */
+  const progressEl = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progressEl.value = (st / h) * 100;
+  });
+
+  /* Scroll cue: aparece cerca del fondo y lleva al inicio */
+  const scrollCueBtn = document.getElementById('scrollCue');
+  function toggleScrollCue(){
+    const threshold = 60; // px desde el final de la página
+    const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - threshold;
+    if (atBottom){
+      scrollCueBtn.hidden = false;
+      scrollCueBtn.classList.add('visible');
+    } else {
+      scrollCueBtn.classList.remove('visible');
+      setTimeout(()=>{ if(!scrollCueBtn.classList.contains('visible')) scrollCueBtn.hidden = true; }, 300);
+    }
+  }
+  window.addEventListener('scroll', toggleScrollCue, { passive:true });
+  toggleScrollCue();
+  scrollCueBtn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+  /* Skill carousel activation */
+  function updateActive() {
+    const radios = [...document.querySelectorAll('input[name="sc-slider"]')];
+    const active = radios.findIndex(r => r.checked) + 1;
+    document.querySelectorAll('.sc-card').forEach(c => (c.dataset.active = c.id.endsWith(String(active))));
+  }
+  document.querySelectorAll('.sc-card button').forEach(btn =>
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-target');
+      const radio = document.getElementById(target);
+      if (radio) {
+        radio.checked = true;
+        updateActive();
+      }
+    })
+  );
+  updateActive();
+
+  /* Animate bars for active card (once) */
+  const barsObserver = new IntersectionObserver(entries => {
+    entries.forEach(ent => {
+      if (ent.isIntersecting) {
+        document
+          .querySelectorAll('.sc-card[data-active="true"] .sm-bar span')
+          .forEach(span => (span.style.width = getComputedStyle(span.parentElement).getPropertyValue('--w')));
+        barsObserver.disconnect();
+      }
+    });
+  }, { threshold: .4 });
+  const firstCard = document.querySelector('.sc-card');
+  if (firstCard) barsObserver.observe(firstCard);
+
+  /* Structured data */
+  const person = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Cristobal Arturo Mejia Romo',
+    jobTitle: 'HiL Core Business Analyst',
+    worksFor: { '@type': 'Organization', name: 'Ford Motor Company' },
+    sameAs: ['https://www.linkedin.com/in/cristóbal-mejía-romo-834787179'],
+    knowsAbout: [
+      'Data Analytics',
+      'Automation',
+      'Process Improvement',
+      'KPI/OKR Frameworks',
+      'Power BI',
+      'Python',
+      'Agile',
+      'Lean',
+      'Six Sigma',
+      'APIs',
+      'Workflow Orchestration'
+    ]
+  };
+  const ld = document.createElement('script');
+  ld.type = 'application/ld+json';
+  ld.textContent = JSON.stringify(person);
+  document.head.appendChild(ld);
+
+  /* Dynamic year */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* (Se removió el botón de modo claro/oscuro) */
+  </script>
+</body>
+</html>
