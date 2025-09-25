@@ -14,7 +14,7 @@
   <link rel="preload" as="image" href="cmejia_formal.jpg" />
   <style>
     :root {
-      --color-bg: #121212; --color-body-bg: #1e1e1e; --color-text-light: #e0e0e0; --color-text-muted: #c5c5c5; --color-primary: #3a99f6; --color-success: #27ae60; --color-danger: #e74c3c; --color-warning: #f39c12; --color-info: #2980b9; --color-surface: #242424; --color-border: #333333; --color-card-bg: #292929; --color-link: #5dade2; --color-link-hover: #2e86de; --radius: 14px; --shadow: 0 8px 28px -8px rgba(0,0,0,.6); --ease: cubic-bezier(.19,1,.22,1);
+      --color-bg: #121212; --color-body-bg: #1e1e1e; --color-text-light: #ececec; --color-text-muted: #d2d2d2; --color-primary: #3a99f6; --color-success: #27ae60; --color-danger: #e74c3c; --color-warning: #f39c12; --color-info: #2980b9; --color-surface: #242424; --color-border: #333333; --color-card-bg: #292929; --color-link: #5dade2; --color-link-hover: #2e86de; --radius: 14px; --shadow: 0 8px 28px -8px rgba(0,0,0,.6); --ease: cubic-bezier(.19,1,.22,1);
       /* Typographic scale */
       --fs-base: 1.05rem; /* ~16.8px */
       --fs-rg: 0.95rem;   /* regular body text (bullets, paragraphs) */
@@ -41,7 +41,7 @@
       .hero-wrapper > figure { flex:0 0 300px; }
       .hero-wrapper > div { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; justify-content:center; }
     /* Limitar ancho y justificar para alinear visualmente con el encabezado */
-    .hero-wrapper .lead-goal { max-width:50ch; text-align:justify; text-justify:inter-word; hyphens:auto; }
+  .hero-wrapper .lead-goal { max-width:60ch; text-align:justify; text-justify:inter-word; hyphens:none; }
     }
     /* Balance wrapping when supported for nicer first/last line distribution */
     @supports (text-wrap: balance){
@@ -82,12 +82,15 @@
   .skill-category h5 { font-size:0.78rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; margin:0 0 .65rem; color: var(--color-text-muted); }
     .skill-category { margin-bottom:1.4rem; }
     .cert-list { list-style:none; margin:0; padding:0; display:grid; gap:.6rem; }
+  .edu-meta { font-size:.82rem; color:var(--color-text-muted); line-height:1.35; }
+  .edu-focus { font-size:.88rem; color:var(--color-text-muted); line-height:1.5; margin:0; }
   .cert-list li { font-size:0.88rem; color: var(--color-text-muted); line-height:1.45; padding:.12rem 0; }
     .contact-box a { font-weight:600; word-break:break-all; }
-    .whatsapp-link { display:inline-flex; align-items:center; gap:.45rem; text-decoration:none; font-weight:600; letter-spacing:.02em; color:var(--color-text-light); padding:0; background:none; border-radius:0; transition: color .3s ease; }
-    .whatsapp-link i { font-size:1.05rem; color:#0b6b00; }
-    .whatsapp-link:hover { color:var(--color-link-hover); }
-    .whatsapp-link:hover i { color:#0b6b00; }
+  .whatsapp-link { display:inline-flex; align-items:center; gap:.45rem; text-decoration:none; font-weight:600; letter-spacing:.02em; color:#0b6b00; padding:0; background:none; border-radius:4px; transition: color .28s ease, background .28s ease; }
+  .whatsapp-link i { font-size:1.05rem; color:#0b6b00; }
+  .whatsapp-link span { color:#0b6b00; }
+  .whatsapp-link:hover { color:#0ea000; }
+  .whatsapp-link:hover span, .whatsapp-link:hover i { color:#0ea000; }
     .whatsapp-link:focus-visible { outline:2px solid #0b6b00; outline-offset:3px; border-radius:4px; }
     [data-reveal] { opacity:0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
     [data-reveal].visible { opacity:1; transform: translateY(0); }
@@ -115,8 +118,9 @@
     .skill-carousel-wrapper { max-width:880px; margin:0 auto; }
   .sc-container { width:100%; max-width:800px; height:360px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
     .sc-container input[type=radio]{ display:none; }
-    .sc-cards { position:relative; width:100%; height:260px; margin-bottom:18px; }
-    .sc-card { position:absolute; inset:0; width:60%; height:100%; margin:auto; border-radius:12px; overflow:hidden; cursor:pointer; transition: transform .5s var(--ease), opacity .5s; box-shadow:0 12px 38px -12px rgba(0,0,0,.55); display:flex; flex-direction:column; background:linear-gradient(145deg, rgba(60,60,60,.9), rgba(25,25,25,.95)); backdrop-filter:blur(6px); }
+  /* Slight right shift (left offset) for visual centering of cards under the Skills heading */
+  .sc-cards { position:relative; width:100%; height:260px; margin-bottom:18px; left:20px; }
+  .sc-card { position:absolute; inset:0; width:60%; height:100%; margin:auto; border-radius:12px; overflow:hidden; cursor:pointer; transition: transform .5s var(--ease), opacity .5s; box-shadow:0 12px 38px -12px rgba(0,0,0,.55); display:flex; flex-direction:column; background:linear-gradient(145deg, rgba(60,60,60,.9), rgba(25,25,25,.95)); backdrop-filter:blur(6px); }
     .sc-matrix { flex:1; padding:.9rem .95rem .6rem; overflow:hidden; display:flex; align-items:center; justify-content:center; }
     .skill-matrix { width:100%; border-collapse:collapse; font-size:.78rem; line-height:1.28; }
     .skill-matrix thead th { text-transform:uppercase; letter-spacing:.08em; font-weight:600; font-size:.66rem; padding:0 0 .42rem; color:var(--color-text-muted); }
@@ -133,8 +137,29 @@
     .sc-card[data-active="true"] .sm-bar span { width:var(--w); }
     .sc-card h5 { margin:.65rem .9rem .15rem; font-size:1.05rem; letter-spacing:.13em; text-transform:uppercase; font-weight:800; color:var(--color-text-muted); text-align:center; }
     body.light .sc-card h5 { color:#444; }
-    #sc-item-1:checked ~ .sc-cards #sc-card-3, #sc-item-2:checked ~ .sc-cards #sc-card-1, #sc-item-3:checked ~ .sc-cards #sc-card-2 { transform:translateX(-40%) scale(.78); opacity:.35; z-index:0; }
-    #sc-item-1:checked ~ .sc-cards #sc-card-2, #sc-item-2:checked ~ .sc-cards #sc-card-3, #sc-item-3:checked ~ .sc-cards #sc-card-1 { transform:translateX(40%) scale(.78); opacity:.35; z-index:0; }
+    /* Generic fluid media */
+    img, svg, video { max-width:100%; height:auto; }
+    /* --- Mobile / small screen enhancements --- */
+    @media (max-width:640px){
+      .hero-wrapper { padding:96px 1rem 40px; gap:2rem; }
+      h1 { font-size:clamp(2rem,7.4vw,2.45rem); line-height:1.16; }
+      .hero-wrapper .lead-goal { max-width:100%; text-align:left; hyphens:auto; }
+      nav.primary-float { top:12px; height:54px; width:96%; }
+      nav.primary-float a { padding:.5rem .7rem .54rem; font-size:.66rem; }
+      #experienceList { padding:1.6rem 0 2.2rem; }
+      .timeline-item { padding:1.7rem 1rem 1.95rem 4.0rem; }
+      .tl-date { font-size:.64rem; top:.95rem; }
+    }
+    @media (max-width:480px){
+      .hero-wrapper { padding:92px .9rem 36px; }
+      h1 { font-size:clamp(1.85rem,8vw,2.25rem); }
+      .timeline-item { padding:1.6rem .85rem 1.85rem 3.6rem; }
+      .timeline-node { width:12px; height:12px; }
+      .tl-date { font-size:.6rem; top:.9rem; }
+    }
+  /* Original translations restore centering under Skills title */
+  #sc-item-1:checked ~ .sc-cards #sc-card-3, #sc-item-2:checked ~ .sc-cards #sc-card-1, #sc-item-3:checked ~ .sc-cards #sc-card-2 { transform:translateX(-40%) scale(.78); opacity:.35; z-index:0; }
+  #sc-item-1:checked ~ .sc-cards #sc-card-2, #sc-item-2:checked ~ .sc-cards #sc-card-3, #sc-item-3:checked ~ .sc-cards #sc-card-1 { transform:translateX(40%) scale(.78); opacity:.35; z-index:0; }
     #sc-item-1:checked ~ .sc-cards #sc-card-1, #sc-item-2:checked ~ .sc-cards #sc-card-2, #sc-item-3:checked ~ .sc-cards #sc-card-3 { transform:translateX(0) scale(1); opacity:1; z-index:1; box-shadow:0 0 0 3px rgba(255,255,255,.25),0 12px 38px -12px rgba(0,0,0,.65); }
     .sc-radio-label { position:absolute; inset:0; }
     .sc-card button { all:unset; position:absolute; inset:0; cursor:pointer; }
@@ -164,7 +189,7 @@
     nav.primary-float a:hover:after, nav.primary-float a.active:after { width:40%; }
     @media (max-width:760px){ nav.primary-float { height:56px; gap:.15rem; } nav.primary-float a { font-size:.68rem; padding:.5rem .7rem .52rem; } }
     /* Continuous vertical line for experience bullets (no individual circles) */
-  #experienceList { max-width:760px; margin:0 auto; }
+  #experienceList { max-width:1100px; margin:0 auto; }
   #experienceList .exp-item .exp-body ul { list-style:none; margin:0; padding:0 0 0 1.4rem; position:relative; display:grid; gap:.6rem; max-width:var(--content-max); }
   #education .card-soft, #certifications .card-soft { max-width:var(--content-max); }
   .lead-goal, .cert-list { max-width:var(--content-max); }
@@ -174,7 +199,7 @@
   /* --- Timeline (vertical alternating) --- */
   #experienceList.timeline { position:relative; padding:2.2rem 0 2.6rem; }
   #experienceList.timeline:before { content:""; position:absolute; top:0; bottom:0; left:50%; width:4px; margin-left:-2px; background:linear-gradient(180deg,var(--color-primary),var(--color-info)); border-radius:4px; opacity:.95; }
-  .timeline-item { position:relative; width:50%; padding:1.2rem 2.2rem 1.6rem; box-sizing:border-box; }
+  .timeline-item { position:relative; width:50%; padding:1.15rem 1.35rem 1.55rem; box-sizing:border-box; }
   .timeline-item.left { left:0; text-align:right; }
   .timeline-item.right { left:50%; text-align:left; }
   .timeline-item .tl-content { position:relative; display:inline-block; max-width:100%; background: var(--color-card-bg); border:1px solid var(--color-border); border-radius: var(--radius); padding:1rem 1.15rem 1.05rem; box-shadow: var(--shadow); text-align:left; margin-top:1.8rem; }
@@ -191,7 +216,7 @@
   .timeline-item.right .timeline-node { left:0; transform:translate(-50%,0); }
   body.light .timeline-node { background:var(--color-primary); }
   /* Date chips above node on opposite side */
-  .tl-date { position:absolute; top:1.0rem; font-size:.55rem; letter-spacing:.18em; text-transform:uppercase; font-weight:700; background:#000; color:#fff; padding:.26rem .52rem .28rem; border-radius:14px; white-space:nowrap; box-shadow:0 2px 8px -4px rgba(0,0,0,.55); line-height:1; }
+  .tl-date { position:absolute; top:1.0rem; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700; background:#000; color:#fff; padding:.34rem .68rem .38rem; border-radius:18px; white-space:nowrap; box-shadow:0 3px 10px -4px rgba(0,0,0,.6); line-height:1; }
     body.light .tl-date { background:#fff; color:#111; box-shadow:0 2px 8px -4px rgba(0,0,0,.25); }
   /* Left side item: card (left) | date | node(line) */
   .timeline-item.left .tl-date { left:calc(100% - 10px); transform:translate(-100%,-50%); }
@@ -297,7 +322,7 @@
     <div class="skill-carousel-wrapper mb-4" aria-label="Highlighted Skill Domains"><div class="sc-container"><input type="radio" name="sc-slider" id="sc-item-1" checked><input type="radio" name="sc-slider" id="sc-item-2"><input type="radio" name="sc-slider" id="sc-item-3"><div class="sc-cards" id="scCards"></div></div></div>
     <div class="row"><div class="col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-3">Technical</h4><div class="skill-category"><h5>Core</h5><div><span class="skill-pill">Data Analytics</span><span class="skill-pill">Python (OOP)</span><span class="skill-pill">REST APIs</span><span class="skill-pill">MS Office Suite</span><span class="skill-pill">Google Workspace</span><span class="skill-pill">n8n</span><span class="skill-pill">Power BI</span><span class="skill-pill">Qlik</span></div></div><div class="skill-category"><h5>Methods</h5><div><span class="skill-pill">SAFe Agile</span><span class="skill-pill">Kanban</span><span class="skill-pill">Scrum</span><span class="skill-pill">Lean</span><span class="skill-pill">Six Sigma</span><span class="skill-pill">SLA</span><span class="skill-pill">OKRs</span></div></div></div></div><div class="col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-3">Soft & Cross-Functional</h4><p style="font-size:.8rem; line-height:1.45; color: var(--color-text-muted);">Cross-functional collaboration, strategic stakeholder alignment, systems thinking, impact-based prioritization, clear value-oriented communication and continuous improvement mindset.</p><div class="skill-category"><h5>Tools & Collaboration</h5><div><span class="skill-pill">Atlassian</span><span class="skill-pill">Confluence</span><span class="skill-pill">GitHub Actions</span><span class="skill-pill">Power Apps</span><span class="skill-pill">Automations</span></div></div><div class="skill-category"><h5>Languages</h5><div><span class="skill-pill">Spanish (Native)</span><span class="skill-pill">English (Advanced)</span><span class="skill-pill">German (Intermediate)</span><span class="skill-pill">Italian (Basic)</span></div></div></div></div></div>
   </section>
-  <section id="education" class="section" data-reveal><div class="section-title"><h2><span>Education</span></h2></div><div class="row justify-content-center"><div class="col-md-7 col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-1">Mechatronics Engineering</h4><p class="mb-2" style="font-size:.8rem; color:var(--color-text-muted);"><img src="salle.png" class="university-logo" alt="Universidad La Salle Logo" width="80" height="80" loading="lazy" />Universidad La Salle (2015 – 2019)</p><p style="font-size:.75rem; color:var(--color-text-muted);">Focus on automation, embedded systems and applied technical analysis for vehicle platforms.</p></div></div></div></section>
+  <section id="education" class="section" data-reveal><div class="section-title"><h2><span>Education</span></h2></div><div class="row justify-content-center"><div class="col-md-7 col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-1">Mechatronics Engineering</h4><p class="mb-2 edu-meta"><img src="salle.png" class="university-logo" alt="Universidad La Salle Logo" width="80" height="80" loading="lazy" />Universidad La Salle (2015 – 2019)</p><p class="edu-focus">Focus on automation, embedded systems and applied technical analysis for vehicle platforms.</p></div></div></div></section>
   <section id="certifications" class="section" data-reveal><div class="section-title"><h2><span>Certifications & Courses</span></h2></div><div class="row justify-content-center"><div class="col-lg-8 col-xl-7 mb-4" data-reveal><div class="card-soft h-100"><ul class="cert-list mb-0" id="certList"></ul></div></div></div></section>
   <section id="contact" class="section" data-reveal><div class="section-title"><h2><span>Contact</span></h2></div><div class="row"><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-linkedin mr-1"></i> LinkedIn</h5><a href="https://www.linkedin.com/in/cristóbal-mejía-romo-834787179" target="_blank" rel="noopener">linkedin.com/in/cristóbal-mejía-romo-834787179</a></div></div><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-telephone mr-1"></i> Mobile / WhatsApp</h5><a class="whatsapp-link" href="https://wa.me/525566912978" target="_blank" rel="noopener" aria-label="Open WhatsApp chat in new tab for +52 55 6691 2978"><i class="bi bi-whatsapp"></i><span>+52 55 6691 2978</span></a></div></div><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-envelope mr-1"></i> Email</h5><a href="mailto:cristobal_arturo@hotmail.com">cristobal_arturo@hotmail.com</a></div></div></div></section>
   </main>
@@ -396,14 +421,13 @@
       period: 'Dec 2019 – Sept 2025',
       bullets: [
         'Expanded HiL test coverage through agile methods and targeted automation.',
-        'Led digital project portfolio aligning corporate objectives with platform metrics.',
         'Automated manual HiL test preparation & reporting tasks using internal Python tools.',
         'Delivered performance analytics enabling cross‑team KPI definition and attainment.',
         'Developed analytics tool reducing manual diagnostic effort ~99.9% (months to 1 minute).',
         'Implemented continuous improvement loop (hypothesis → launch → measurement).',
         'Integrated Power Apps and GitHub Actions to streamline CI/CD style flows.',
         'Published Power BI / Qlik dashboards for real‑time operational visibility.',
-        'Embedded KPI / OKR and process governance frameworks into engineering cadence.'
+        // Removed bullet about embedded KPI/OKR governance to reduce length
       ]
     },
     {
@@ -412,7 +436,6 @@
       period: 'Sept 2017 – Dec 2019',
       bullets: [
         'Supported setup of automated HiL testing processes and infrastructure.',
-        'Gained hands‑on exposure to agile frameworks and modern toolchains.',
         'Created embedded OCR system and evaluation utilities for HiL subsystem.',
         'Assisted scripting and environment preparation for validation scenarios.',
         'Collaborated with engineering teams to scale coverage and consistency.'
@@ -530,6 +553,43 @@
     })
   );
   updateActive();
+
+  /* --- Swipe (touch) navigation for skill carousel on mobile --- */
+  (function enableSkillSwipe(){
+    const wrapper = document.querySelector('.sc-cards');
+    const radios = () => [...document.querySelectorAll('input[name="sc-slider"]')];
+    if(!wrapper || radios().length===0) return;
+    let startX = 0, startY = 0, deltaX = 0, deltaY = 0, isTouch = false, locked=false;
+    const minSwipe = 40; // px horizontal threshold
+    function pointerDown(e){
+      const t = e.touches ? e.touches[0] : e;
+      startX = t.clientX; startY = t.clientY; deltaX = 0; deltaY = 0; isTouch = true; locked=false;
+    }
+    function pointerMove(e){
+      if(!isTouch) return;
+      const t = e.touches ? e.touches[0] : e;
+      deltaX = t.clientX - startX; deltaY = t.clientY - startY;
+      // lock vertical scroll only if horizontal intent is strong
+      if(!locked && Math.abs(deltaX) > 18 && Math.abs(deltaY) < 20){ locked=true; e.preventDefault(); }
+    }
+    function pointerUp(){
+      if(!isTouch) return;
+      isTouch=false;
+      if(Math.abs(deltaX) >= minSwipe && Math.abs(deltaY) < 60){
+        const list = radios();
+        const currentIdx = list.findIndex(r=>r.checked);
+        let next = currentIdx;
+        if(deltaX < 0 && currentIdx < list.length-1) next = currentIdx + 1; // swipe left -> next
+        else if(deltaX > 0 && currentIdx > 0) next = currentIdx - 1; // swipe right -> prev
+        if(next !== currentIdx){
+          list[next].checked = true; updateActive();
+        }
+      }
+    }
+    wrapper.addEventListener('touchstart', pointerDown, {passive:true});
+    wrapper.addEventListener('touchmove', pointerMove, {passive:false});
+    wrapper.addEventListener('touchend', pointerUp, {passive:true});
+  })();
 
   /* Animate bars for active card (once) */
   const barsObserver = new IntersectionObserver(entries => {
