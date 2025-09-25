@@ -26,8 +26,10 @@
       --content-max: 880px;
     }
     body.light { --color-bg: #f5f7fa; --color-body-bg: #ffffff; --color-text-light: #121212; --color-text-muted: #555555; --color-primary: #0657ff; --color-surface: #f9f9f9; --color-border: #bbbbbb; --color-card-bg: #ffffff; --color-link: #2e86de; --color-link-hover: #5dade2; }
-    body { background: var(--color-body-bg); color: var(--color-text-light); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; font-size: var(--fs-base); line-height:1.55; transition: background .6s, color .6s; }
-    html { scroll-padding-top:110px; }
+  /* Prevent horizontal scroll */
+  html, body { max-width:100%; overflow-x:hidden; }
+  body { background: var(--color-body-bg); color: var(--color-text-light); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; font-size: var(--fs-base); line-height:1.55; transition: background .6s, color .6s; }
+  html { scroll-padding-top:110px; }
     a { color: var(--color-link); }
     a:hover { color: var(--color-link-hover); }
     h1,h2,h3,h4,h5 { color: var(--color-text-light); font-weight:600; }
@@ -111,7 +113,7 @@
   .scroll-cue:hover {background:rgba(0,0,0,.75);} .scroll-cue i {font-size:1.3rem;}
     @media (min-width: 992px){ html { scroll-behavior:smooth; } }
     .skill-carousel-wrapper { max-width:880px; margin:0 auto; }
-    .sc-container { width:100%; max-width:800px; height:360px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; }
+  .sc-container { width:100%; max-width:800px; height:360px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
     .sc-container input[type=radio]{ display:none; }
     .sc-cards { position:relative; width:100%; height:260px; margin-bottom:18px; }
     .sc-card { position:absolute; inset:0; width:60%; height:100%; margin:auto; border-radius:12px; overflow:hidden; cursor:pointer; transition: transform .5s var(--ease), opacity .5s; box-shadow:0 12px 38px -12px rgba(0,0,0,.55); display:flex; flex-direction:column; background:linear-gradient(145deg, rgba(60,60,60,.9), rgba(25,25,25,.95)); backdrop-filter:blur(6px); }
@@ -179,6 +181,27 @@
   #certifications .card-soft:before { content:""; position:absolute; left:.15rem; top:.1rem; bottom:.1rem; width:2px; background:linear-gradient(180deg,var(--color-primary),var(--color-info)); border-radius:2px; opacity:.85; }
   #certifications .cert-list { padding:0; margin:0; }
   #certifications .cert-list li { padding:0; }
+    /* University logo styling */
+  /* Logos enlarged more per latest request */
+  .university-logo, .company-logo { vertical-align:middle; display:inline-block; object-fit:contain; }
+  .university-logo { width:2.5em; height:2.5em; margin-right:0.6em; }
+  .company-logo { width:2.35em; height:2.35em; margin-right:0.6em; }
+    /* Even larger Experience section scaling (keeping h2 intact) */
+    #experience .exp-item { font-size:1.22rem; }
+    #experience .exp-item .exp-role { font-size:1.35rem; }
+    #experience .exp-item .exp-company, 
+    #experience .exp-item .exp-meta { font-size:1.18rem; }
+    #experience .exp-item .exp-body li { font-size:1.18rem; line-height:1.5; }
+    /* Responsive safeguard so very large sizes don't overflow on small screens */
+    @media (max-width: 575.98px) {
+      .university-logo { width:2.1em; height:2.1em; }
+      .company-logo { width:2em; height:2em; }
+      #experience .exp-item { font-size:1.15rem; }
+      #experience .exp-item .exp-role { font-size:1.28rem; }
+      #experience .exp-item .exp-company, 
+      #experience .exp-item .exp-meta { font-size:1.1rem; }
+      #experience .exp-item .exp-body li { font-size:1.12rem; }
+    }
     /* Skip link styling */
     .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
     .skip-link:focus { left:50%; top:10px; width:auto; height:auto; padding:.7rem 1rem; background:#000; color:#fff; z-index:10000; transform:translateX(-50%); border-radius:6px; box-shadow:0 6px 18px -6px rgba(0,0,0,.5); }
@@ -224,7 +247,7 @@
     <div class="skill-carousel-wrapper mb-4" aria-label="Highlighted Skill Domains"><div class="sc-container"><input type="radio" name="sc-slider" id="sc-item-1" checked><input type="radio" name="sc-slider" id="sc-item-2"><input type="radio" name="sc-slider" id="sc-item-3"><div class="sc-cards" id="scCards"></div></div></div>
     <div class="row"><div class="col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-3">Technical</h4><div class="skill-category"><h5>Core</h5><div><span class="skill-pill">Data Analytics</span><span class="skill-pill">Python (OOP)</span><span class="skill-pill">REST APIs</span><span class="skill-pill">MS Office Suite</span><span class="skill-pill">Google Workspace</span><span class="skill-pill">n8n</span><span class="skill-pill">Power BI</span><span class="skill-pill">Qlik</span></div></div><div class="skill-category"><h5>Methods</h5><div><span class="skill-pill">SAFe Agile</span><span class="skill-pill">Kanban</span><span class="skill-pill">Scrum</span><span class="skill-pill">Lean</span><span class="skill-pill">Six Sigma</span><span class="skill-pill">SLA</span><span class="skill-pill">OKRs</span></div></div></div></div><div class="col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-3">Soft & Cross-Functional</h4><p style="font-size:.8rem; line-height:1.45; color: var(--color-text-muted);">Cross-functional collaboration, strategic stakeholder alignment, systems thinking, impact-based prioritization, clear value-oriented communication and continuous improvement mindset.</p><div class="skill-category"><h5>Tools & Collaboration</h5><div><span class="skill-pill">Atlassian</span><span class="skill-pill">Confluence</span><span class="skill-pill">GitHub Actions</span><span class="skill-pill">Power Apps</span><span class="skill-pill">Automations</span></div></div><div class="skill-category"><h5>Languages</h5><div><span class="skill-pill">Spanish (Native)</span><span class="skill-pill">English (Advanced)</span><span class="skill-pill">German (Intermediate)</span><span class="skill-pill">Italian (Basic)</span></div></div></div></div></div>
   </section>
-  <section id="education" class="section" data-reveal><div class="section-title"><h2><span>Education</span></h2></div><div class="row justify-content-center"><div class="col-md-7 col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-1">Mechatronics Engineering</h4><p class="mb-2" style="font-size:.8rem; color:var(--color-text-muted);">Universidad La Salle (2015 – 2019)</p><p style="font-size:.75rem; color:var(--color-text-muted);">Focus on automation, embedded systems and applied technical analysis for vehicle platforms.</p></div></div></div></section>
+  <section id="education" class="section" data-reveal><div class="section-title"><h2><span>Education</span></h2></div><div class="row justify-content-center"><div class="col-md-7 col-lg-6 mb-4" data-reveal><div class="card-soft h-100"><h4 class="mb-1">Mechatronics Engineering</h4><p class="mb-2" style="font-size:.8rem; color:var(--color-text-muted);"><img src="salle.png" class="university-logo" alt="Universidad La Salle Logo" width="80" height="80" loading="lazy" />Universidad La Salle (2015 – 2019)</p><p style="font-size:.75rem; color:var(--color-text-muted);">Focus on automation, embedded systems and applied technical analysis for vehicle platforms.</p></div></div></div></section>
   <section id="certifications" class="section" data-reveal><div class="section-title"><h2><span>Certifications & Courses</span></h2></div><div class="row justify-content-center"><div class="col-lg-8 col-xl-7 mb-4" data-reveal><div class="card-soft h-100"><ul class="cert-list mb-0" id="certList"></ul></div></div></div></section>
   <section id="contact" class="section" data-reveal><div class="section-title"><h2><span>Contact</span></h2></div><div class="row"><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-linkedin mr-1"></i> LinkedIn</h5><a href="https://www.linkedin.com/in/cristóbal-mejía-romo-834787179" target="_blank" rel="noopener">linkedin.com/in/cristóbal-mejía-romo-834787179</a></div></div><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-telephone mr-1"></i> Mobile / WhatsApp</h5><a class="whatsapp-link" href="https://wa.me/525566912978" target="_blank" rel="noopener" aria-label="Open WhatsApp chat in new tab for +52 55 6691 2978"><i class="bi bi-whatsapp"></i><span>+52 55 6691 2978</span></a></div></div><div class="col-md-4 mb-4" data-reveal><div class="card-soft contact-box h-100"><h5><i class="bi bi-envelope mr-1"></i> Email</h5><a href="mailto:cristobal_arturo@hotmail.com">cristobal_arturo@hotmail.com</a></div></div></div></section>
   </main>
@@ -312,7 +335,7 @@
     {
       role: 'HiL Core Business Analyst',
       company: 'Ford Motor Company',
-      period: 'Dec 2019 – Present',
+      period: 'Dec 2019 – Sept 2025',
       bullets: [
         'Expanded HiL test coverage through agile methods and targeted automation.',
         'Led digital project portfolio aligning corporate objectives with platform metrics.',
@@ -352,12 +375,13 @@
   ];
 
   const expContainer = document.getElementById('experienceList');
+
   expContainer.innerHTML = experienceData.map((e, i) => `
     <article class="exp-item" data-index="${i}" data-reveal>
       <div class="exp-head">
         <div>
           <h3 class="exp-role mb-1">${e.role}</h3>
-          <div class="exp-company mb-1">${e.company}</div>
+          <div class="exp-company mb-1">${/Ford/i.test(e.company) ? '<img src="ford_logo.png" class="company-logo" alt="Ford Logo" width="90" height="90" loading="lazy" />' : ''}${e.company}</div>
           <div class="exp-meta">${e.period}</div>
         </div>
       </div>
@@ -483,5 +507,4 @@
   /* (Se removió el botón de modo claro/oscuro) */
   </script>
 </body>
-
 </html>
